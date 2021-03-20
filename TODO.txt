@@ -1,7 +1,0 @@
-TODO:
-    1. Create a create_task() function.
-
-Some ideas:
-
-    Have a command task open up task editor.
-    If task is specified with an argument just list/sort/filter it.

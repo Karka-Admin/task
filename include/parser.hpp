@@ -1,5 +1,6 @@
 #include <iostream>
 #include "actions.hpp"
+#include "ascii.hpp"
 using namespace std;
 
 class Parser
@@ -23,16 +24,26 @@ public:
                     create_task(argv[i + 1]);
                     break;
                 }
+                else if ((string) argv[i] == "-l" || (string) argv[i] == "--list")
+                {
+                    list_tasks();
+                    break;
+                }
+                else if (((string) argv[i] == "-d" || (string) argv[i] == "--delete") && i + 1 <= argc)
+                {
+                    delete_task(ascii_to_num(argv[i + 1]));
+                    break;
+                }
                 else
                 {
-                    cerr << "Argument " << argv[i] << " unrecognized.\n";
+                    cerr << "Argument '" << argv[i] << "' unrecognized. Type 'task -h' for help.\n";
                     break;
                 }
             }
         }
         else
         {
-            cerr << "Not enough arguments.\n";
+            help_message();
         }
     }
 };
