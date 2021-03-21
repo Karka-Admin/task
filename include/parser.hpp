@@ -34,9 +34,19 @@ public:
                     delete_task(ascii_to_num(argv[i + 1]));
                     break;
                 }
+                else if (((string) argv[i] == "-f" || (string) argv[i] == "--finish") && i + 1 <= argc)
+                {
+                    finish_task(ascii_to_num(argv[i + 1]));
+                    break;
+                }
+                else if (((string) argv[i] == "-e" || (string) argv[i] == "--edit") && i + 2 <= argc)
+                {
+                    edit_task(ascii_to_num(argv[i + 1]), argv[i + 1]);
+                    break;
+                }
                 else
                 {
-                    cerr << "Argument '" << argv[i] << "' unrecognized. Type 'task -h' for help.\n";
+                    cerr << "Argument '" << argv[i] << "' is invalid. Type 'task -h' for help.\n";
                     break;
                 }
             }

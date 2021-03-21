@@ -8,16 +8,17 @@ task::Files files;
 void help_message()
 {
     cout << "\tTask - cli tool to manage your tasks\n" <<
-    "Usage: task [options]\n" <<
+    "Usage: task [option] [argument]\n" <<
     "Options:\n" <<
     "-h | --help\t Show help message\n" <<
     "-l | --list\t List tasks\n" <<
     "-n | --new\t Create a new task\n" << 
     "-d | --delete\t Delete task\n" <<
-    "-f | --finish\t Finish task\n";
+    "-f | --finish\t Finish task\n" <<
+    "-e | --edit\t Modify a task\n";
 }
 
-// Appends new task to tasks.txt
+// Appends new task
 void create_task(string name)
 {
     fstream taskFile;
@@ -30,12 +31,32 @@ void create_task(string name)
     taskFile.close();
 }
 
-void delete_task(int taskNumber)
+// Mark task as finished
+void finish_task(int taskNumber)
+{
+    
+}
+
+// Edit task
+void edit_task(int taskNumber, string name)
 {
 
 }
 
-// Lists all tasks from tasks.txt
+// Delete task
+void delete_task(int taskNumber)
+{
+    fstream taskFile;
+    files.file_exists(taskFile, files.taskFileDir);
+
+    cout << files.count_tasks(taskFile);
+
+    ofstream tempFile("temp.txt");
+
+    tempFile.close();
+}
+
+// Lists tasks
 void list_tasks()
 {
     int counter = 1;
