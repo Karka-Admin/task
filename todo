@@ -1,0 +1,5 @@
+1. Switch to getopt.
+2. Implement delete_task() function.
+3. Implement task attributes.
+4. Implement finish_task() function.
+5. Implement edit_task() function.
