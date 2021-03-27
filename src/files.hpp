@@ -30,7 +30,7 @@ public:
     {
         for (int i = 0; i < buffer.size(); i++)
         {
-            file << buffer[i] << "\n";
+            file << buffer[i] << '\n';
         }
 
         file.clear();
