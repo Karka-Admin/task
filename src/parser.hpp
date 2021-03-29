@@ -10,10 +10,11 @@ public:
     {
         int opt;
         opterr = 0;
+        std::string task;
 
         if (argc > 1)
         {
-            while ((opt = getopt(argc, argv, "hlc:d:")) != -1)
+            while ((opt = getopt(argc, argv, "hlc:d:t:e:")) != -1)
             {
                 switch (opt)
                 {
@@ -22,7 +23,8 @@ public:
                     case 'c': create_task(optarg); break;
                     case 'd': delete_task(atoi(optarg)); break;
                     case 'f': finish_task(atoi(optarg)); break;
-                    case 'e': edit_task(atoi(optarg)); break;
+                    case 't': task = optarg; break;
+                    case 'e': edit_task(atoi(optarg), task); break;
                     case '?':
                         std::cout << "Problem with command: -" << (char) optopt << '\n';
                         abort();

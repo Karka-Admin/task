@@ -40,7 +40,7 @@ void finish_task(int taskNumber)
     
 }
 
-void edit_task(int taskNumber)
+void edit_task(int taskNumber, std::string &task)
 {
     std::fstream taskFile;
     files.error_check_file(taskFile);
@@ -48,7 +48,12 @@ void edit_task(int taskNumber)
 
     taskFile.open(files.taskFileDir, std::ios::out | std::ios::trunc);
 
+    std::cout << "\nEdited task: " << buffer[taskNumber - 1] << '\n';
 
+    buffer[taskNumber - 1] = task + " |u|";
+    files.buffer_to_file(taskFile, buffer);
+
+    std::cout << "\nNow: " << buffer[taskNumber - 1] << "\n\n";
 
     taskFile.close();
 }
